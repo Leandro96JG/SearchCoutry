@@ -1,0 +1,27 @@
+<h2>Por Region</h2>
+<hr>
+
+
+<div class="row">
+  <div class="col">
+<!-- search box -->
+<div class="text-center active animate__animated animate__fadeIn">
+  <button
+
+  class="btn btn-dark m-2"
+   *ngFor="let region of regions"
+   (click)="searchByRegion(region)"
+   [ngClass]="{'animate__animated animate__pulse animate__infinite':selectedRegion===region}">
+    {{region}}
+  </button>
+</div>
+
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col">
+    <shared-loading-spinner class="active animate__animated animate__fadeIn" *ngIf="isLoading"></shared-loading-spinner>
+<countries-table [countries]="countries"></countries-table>
+  </div>
+</div>
